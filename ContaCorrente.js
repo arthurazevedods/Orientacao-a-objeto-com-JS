@@ -1,7 +1,7 @@
 class ContaCorrente {
     constructor(agencia, cliente, saldo) {
-        this.agencia = agencia;
-        this.cliente = cliente;
+        this._agencia = agencia;
+        this._cliente = cliente;
         this._saldo = saldo;
     }
 
@@ -19,22 +19,41 @@ class ContaCorrente {
         this._saldo += valor;
     }
 
-    transferir(valor,conta){
+    transferir(valor, conta) {
         const sacado = this.sacar(valor);
         conta.depositar(sacado);
     }
 
-    getAgencia() {
-        return this.agencia;
+    get agencia() {
+        return this._agencia;
     }
 
-    getSaldo() {
+    set agencia(novaAgencia) {
+        this._agencia = novaAgencia;
+    }
+
+    get cliente() {
+        return this._cliente;
+    }
+
+    set cliente(novoCliente) {
+        if (novoCliente instanceof Cliente) {
+            this._cliente = novoCliente;
+        }
+    }
+
+    get saldo() {
         return this._saldo;
     }
+
+    set saldo(novoSaldo) {
+        this._saldo = novoSaldo;
+    }
+
     mostrarInformacoes() {
-        console.log("Cliente: " + this.cliente.getCliente());
-        console.log("Agência: " + this.getAgencia());
-        console.log("Saldo: R$" + this.getSaldo());
+        console.log("Cliente: " + this._cliente.getCliente());
+        console.log("Agência: " + this.agencia);
+        console.log("Saldo: R$" + this.saldo);
         console.log("-----------------------");
     }
 }

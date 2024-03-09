@@ -10,17 +10,12 @@ const contas = [conta1, conta2, conta3];
 
 async function percorrerContas(array) {
     for (let conta of array) {
-        //await delay(5000); // Aguardar 5 segundos antes de continuar
         conta.mostrarInformacoes();
     }
 }
 
-// Função para criar um atraso
-function delay(ms) {
-    console.log("Carregando informações...")
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 percorrerContas(contas);
 conta2.transferir(4.0, conta3);
+conta3.transferir(2.0,conta1);
+console.log("Depois das transferências:")
 percorrerContas(contas);
