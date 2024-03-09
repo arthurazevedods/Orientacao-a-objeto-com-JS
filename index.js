@@ -1,38 +1,5 @@
-class Cliente {
-    constructor(nome, cpf, contacorrente) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.contacorrente = contacorrente
-    }
-    mostrarInformacoes(){
-        console.log("Nome: " + this.nome);
-        console.log("CPF: " + this.cpf);
-        console.log("Agência: " + this.contacorrente.agencia);
-        console.log("Saldo: R$" + this.contacorrente.saldo);
-        console.log("-----------------------");
-    }
-}
-
-class ContaCorrente{
-    constructor(agencia, saldo){
-        this.agencia = agencia;
-        this._saldo = saldo;
-    }
-
-    sacar(valor){
-        if(this._saldo >= valor){
-            this._saldo -= valor;
-            return this._saldo
-        }
-    }
-    depositar(valor){
-        if(valor <= 0){
-            return;
-        }
-        
-        this._saldo += valor;
-    }
-}
+const { ContaCorrente } = require('./ContaCorrente.js');
+const { Cliente } = require('./Cliente.js');
 
 const cliente1 = new Cliente("Zuko", "600.000.000-70", new ContaCorrente("4444-0", 23.00));
 const cliente2 = new Cliente("Azula", "610.000.000-11", new ContaCorrente("4444-0", 1540.00));
