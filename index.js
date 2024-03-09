@@ -4,6 +4,13 @@ class Cliente {
         this.cpf = cpf;
         this.contacorrente = contacorrente
     }
+    mostrarInformacoes(){
+        console.log("Nome: " + this.nome);
+        console.log("CPF: " + this.cpf);
+        console.log("Agência: " + this.contacorrente.agencia);
+        console.log("Saldo: R$" + this.contacorrente.saldo);
+        console.log("-----------------------");
+    }
 }
 
 class ContaCorrente{
@@ -22,11 +29,7 @@ const clientes = [cliente1, cliente2, cliente3];
 async function percorrerClientes(array) {
     for (let cliente of array) {
         await delay(5000); // Aguardar 5 segundos antes de continuar
-        console.log("Nome: " + cliente.nome);
-        console.log("CPF: " + cliente.cpf);
-        console.log("Agência: " + cliente.contacorrente.agencia);
-        console.log("Saldo: R$" + cliente.contacorrente.saldo);
-        console.log("-----------------------");
+        cliente.mostrarInformacoes();
     }
 }
 
