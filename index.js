@@ -22,6 +22,5 @@ function delay(ms) {
 }
 
 percorrerContas(contas);
-conta2.sacar(49.50);
-conta3.depositar(60);
+conta2.transferir(4.0, conta3);
 percorrerContas(contas);
