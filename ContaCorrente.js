@@ -1,6 +1,7 @@
 class ContaCorrente {
-    constructor(agencia, saldo) {
+    constructor(agencia, cliente, saldo) {
         this.agencia = agencia;
+        this.cliente = cliente;
         this._saldo = saldo;
     }
 
@@ -18,12 +19,23 @@ class ContaCorrente {
         this._saldo += valor;
     }
 
+    transferir(valor,conta){
+        const sacado = this.sacar(valor);
+        conta.depositar(sacado);
+    }
+
     getAgencia() {
         return this.agencia;
     }
 
     getSaldo() {
         return this._saldo;
+    }
+    mostrarInformacoes() {
+        console.log("Cliente: " + this.cliente.getCliente());
+        console.log("Agência: " + this.getAgencia());
+        console.log("Saldo: R$" + this.getSaldo());
+        console.log("-----------------------");
     }
 }
 
