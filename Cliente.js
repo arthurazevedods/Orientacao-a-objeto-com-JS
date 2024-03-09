@@ -1,7 +1,9 @@
 class Cliente {
+    static totalClientes = 0;
     constructor(nome, cpf) {
         this._nome = nome;
         this._cpf = cpf;
+        Cliente.totalClientes++;
     }
 
     get nome() {

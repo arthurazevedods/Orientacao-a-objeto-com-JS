@@ -1,8 +1,10 @@
 class ContaCorrente {
+    static totalContas = 0;
     constructor(agencia, cliente, saldo) {
         this._agencia = agencia;
         this._cliente = cliente;
         this._saldo = saldo;
+        ContaCorrente.totalContas++;
     }
 
     sacar(valor) {
