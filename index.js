@@ -22,9 +22,14 @@ class ContaCorrente{
     sacar(valor){
         if(this._saldo >= valor){
             this._saldo -= valor;
+            return this._saldo
         }
     }
     depositar(valor){
+        if(valor <= 0){
+            return;
+        }
+        
         this._saldo += valor;
     }
 }
