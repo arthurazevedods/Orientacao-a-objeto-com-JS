@@ -29,5 +29,4 @@ function delay(ms) {
     console.log("Carregando informações...")
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 percorrerClientes(clientes);
